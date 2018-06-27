@@ -22,17 +22,17 @@ def main():
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
-    pygame.display.set_icon(pygame.image.load('/usr/share/games/doggyhearts/Doggy.png'))
+    pygame.display.set_icon(pygame.image.load('Doggy.png'))
     DISPLAYSURF = pygame.display.set_mode((WINWIDTH, WINHEIGHT))
     pygame.display.set_caption('Doggy Hearts')
 
-    KITTY_IMG = pygame.image.load('/usr/share/games/doggyhearts/Doggy.png')
-    ENEMY_IMG = pygame.image.load('/usr/share/games/doggyhearts/ThePig.png')
-    HEART_IMG = pygame.image.load('/usr/share/games/doggyhearts/Heart.png')
+    KITTY_IMG = pygame.image.load('Doggy.png')
+    ENEMY_IMG = pygame.image.load('ThePig.png')
+    HEART_IMG = pygame.image.load('Heart.png')
 
-    BASICFONT = pygame.font.Font('/usr/share/games/doggyhearts/freesansbold.ttf', 32)
+    BASICFONT = pygame.font.Font('freesansbold.ttf', 32)
 
-    start = pygame.image.load('/usr/share/games/doggyhearts/Start.png')
+    start = pygame.image.load('Start.png')
 
     while True:
         DISPLAYSURF.blit(start,(0,0))
@@ -63,8 +63,8 @@ class sprite(pygame.sprite.Sprite):
 
 def runJump():
 
-    bgOne = pygame.image.load('/usr/share/games/doggyhearts/Background.png')
-    bgTwo = pygame.image.load('/usr/share/games/doggyhearts/Background.png')
+    bgOne = pygame.image.load('Background.png')
+    bgTwo = pygame.image.load('Background.png')
 
     moveForward = False
     moveBackward = False
@@ -184,7 +184,7 @@ def runCollect():
     gameOverRect = gameOverSurf.get_rect()
     gameOverRect.center = (int( WINWIDTH / 2 ), int( WINHEIGHT / 2 ))
 
-    bowSurf = pygame.image.load('/usr/share/games/doggyhearts/Bow.png')
+    bowSurf = pygame.image.load('Bow.png')
     bowRect = (WINWIDTH-286, WINHEIGHT-256)
 
     playerObj = {'surface': pygame.transform.smoothscale(KITTY_IMG, (SIZEX, SIZEY)),
