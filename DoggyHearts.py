@@ -38,7 +38,7 @@ def main():
         DISPLAYSURF.blit(start,(0,0))
 
         for event in pygame.event.get():
-	    if event.type == QUIT:
+            if event.type == QUIT:
                 terminate()
             elif event.type == KEYDOWN:
                 if event.key == K_1:
@@ -56,9 +56,9 @@ class sprite(pygame.sprite.Sprite):
     def __init__(self, image, x, y, layer):
         pygame.sprite.Sprite.__init__(self)
         self.image = image
-	self._layer = layer
+        self._layer = layer
         self.rect = self.image.get_rect(x=x, y=y)
-	self.mask = pygame.mask.from_surface(self.image,127)
+        self.mask = pygame.mask.from_surface(self.image,127)
 
 
 def runJump():
@@ -91,24 +91,24 @@ def runJump():
 	       }
  
     while True:
-	DISPLAYSURF.blit(bgOne, (0-(playerObj['x']%bgOne.get_width()), WINHEIGHT-bgOne.get_height() ))
-    	DISPLAYSURF.blit(bgTwo, (bgOne.get_width()-(playerObj['x']%bgOne.get_width()), WINHEIGHT-bgOne.get_height() ))
+        DISPLAYSURF.blit(bgOne, (0-(playerObj['x']%bgOne.get_width()), WINHEIGHT-bgOne.get_height() ))
+        DISPLAYSURF.blit(bgTwo, (bgOne.get_width()-(playerObj['x']%bgOne.get_width()), WINHEIGHT-bgOne.get_height() ))
 
 
-	heartSprite = sprite(heartObj['surface'],int( heartObj['x']+100-playerObj['x'] ),WINHEIGHT-120-heartObj['y'],1)
+        heartSprite = sprite(heartObj['surface'],int( heartObj['x']+100-playerObj['x'] ),WINHEIGHT-120-heartObj['y'],1)
 
-	playerSprite = sprite(playerObj['surface'],100,WINHEIGHT-120-playerObj['y'],2)
+        playerSprite = sprite(playerObj['surface'],100,WINHEIGHT-120-playerObj['y'],2)
 
-	enemySprite = sprite(enemyObj['surface'],int( enemyObj['x']+100-playerObj['x'] ),WINHEIGHT-120,3)
+        enemySprite = sprite(enemyObj['surface'],int( enemyObj['x']+100-playerObj['x'] ),WINHEIGHT-120,3)
 
-	sprites = pygame.sprite.LayeredUpdates(heartSprite, playerSprite, enemySprite)
-	sprites.draw(DISPLAYSURF)
+        sprites = pygame.sprite.LayeredUpdates(heartSprite, playerSprite, enemySprite)
+        sprites.draw(DISPLAYSURF)
 
-	PTSdisp = BASICFONT.render(str(PTS), True, (255, 255, 255))
-	PTSrect = PTSdisp.get_rect()
-	PTSrect.left=10
-	PTSrect.top=10
-	DISPLAYSURF.blit(PTSdisp, PTSrect)
+        PTSdisp = BASICFONT.render(str(PTS), True, (255, 255, 255))
+        PTSrect = PTSdisp.get_rect()
+        PTSrect.left=10
+        PTSrect.top=10
+        DISPLAYSURF.blit(PTSdisp, PTSrect)
 
         for event in pygame.event.get(): 
             if event.type == QUIT:
@@ -117,12 +117,12 @@ def runJump():
             elif event.type == KEYDOWN:
                 if event.key == K_RIGHT:
                     moveForward = True
-		    moveBackward = False
+                    moveBackward = False
                 elif event.key == K_LEFT:
                     moveForward = False
-		    moveBackward = True
+                    moveBackward = True
 
-		elif event.key == K_SPACE and jump == 0:
+                elif event.key == K_SPACE and jump == 0:
                     jump = 1
 
             elif event.type == KEYUP:
@@ -140,30 +140,30 @@ def runJump():
             if moveForward:
                 playerObj['x'] += MOVERATE
 
-	    enemyObj['x'] -= ENEMYMOVERATE
+            enemyObj['x'] -= ENEMYMOVERATE
 
-	    if enemyObj['x'] < playerObj['x']-300:
+            if enemyObj['x'] < playerObj['x']-300:
                 enemyObj['x'] = playerObj['x']+WINWIDTH+random.randint(0, WINWIDTH)           
 
-	    if jump>0:
+            if jump>0:
                 if jump>36:
                     playerObj['y'] -= 5
-	        else:
+                else:
                     playerObj['y'] += 5
-	        jump += 1
+                    jump += 1
 	    
                 if playerObj['y'] == 0: 
-		    jump = 0 
+                    jump = 0 
 
             if pygame.sprite.collide_mask(playerSprite, heartSprite):
                 heartObj['x'] = playerObj['x']+WINWIDTH+random.randint(0, WINWIDTH)
                 heartObj['y'] = random.randint(0, 180)
-	        PTS += 1
-	    if pygame.sprite.collide_mask(playerSprite, enemySprite):
-	        gameOverMode = True
+                PTS += 1
+            if pygame.sprite.collide_mask(playerSprite, enemySprite):
+                gameOverMode = True
                 gameOverStartTime = time.time()
 
-	else:
+        else:
             DISPLAYSURF.blit(gameOverSurf, gameOverRect)
             if time.time() - gameOverStartTime > GAMEOVERTIME:
                 return
@@ -203,23 +203,23 @@ def runCollect():
 		}
 
     while True:
-	DISPLAYSURF.fill( (200, 200, 255) )
-	DISPLAYSURF.blit(bowSurf, bowRect)
+        DISPLAYSURF.fill( (200, 200, 255) )
+        DISPLAYSURF.blit(bowSurf, bowRect)
 
-	heartSprite = sprite(heartObj['surface'],int( heartObj['x'] - (HSIZEX / 2) ),int( heartObj['y'] - (HSIZEY / 2) ),1)
+        heartSprite = sprite(heartObj['surface'],int( heartObj['x'] - (HSIZEX / 2) ),int( heartObj['y'] - (HSIZEY / 2) ),1)
 
-	playerSprite = sprite(playerObj['surface'],int( playerObj['x'] - (SIZEX / 2) ),int( playerObj['y'] - (SIZEY / 2) ),2)
+        playerSprite = sprite(playerObj['surface'],int( playerObj['x'] - (SIZEX / 2) ),int( playerObj['y'] - (SIZEY / 2) ),2)
 
-	enemySprite = sprite(enemyObj['surface'],int( enemyObj['x'] - (ESIZEX / 2) ),int( enemyObj['y'] - (ESIZEY / 2) ),3)
+        enemySprite = sprite(enemyObj['surface'],int( enemyObj['x'] - (ESIZEX / 2) ),int( enemyObj['y'] - (ESIZEY / 2) ),3)
 
-	sprites = pygame.sprite.LayeredUpdates(heartSprite, playerSprite, enemySprite)
-	sprites.draw(DISPLAYSURF)
+        sprites = pygame.sprite.LayeredUpdates(heartSprite, playerSprite, enemySprite)
+        sprites.draw(DISPLAYSURF)
 
-	PTSdisp = BASICFONT.render(str(PTS), True, (255, 255, 255))
-	PTSrect = PTSdisp.get_rect()
-	PTSrect.left=10
-	PTSrect.top=10
-	DISPLAYSURF.blit(PTSdisp, PTSrect)
+        PTSdisp = BASICFONT.render(str(PTS), True, (255, 255, 255))
+        PTSrect = PTSdisp.get_rect()
+        PTSrect.left=10
+        PTSrect.top=10
+        DISPLAYSURF.blit(PTSdisp, PTSrect)
 
         for event in pygame.event.get(): 
             if event.type == QUIT:
@@ -251,7 +251,7 @@ def runCollect():
 
                 elif event.key == K_ESCAPE:
                     return
-	if not gameOverMode:
+        if not gameOverMode:
             if moveLeft and playerObj['x'] > 0:
                 playerObj['x'] -= MOVERATE
             if moveRight and playerObj['x'] < WINWIDTH:
@@ -270,15 +270,15 @@ def runCollect():
             if playerObj['y'] > enemyObj['y']:
                 enemyObj['y'] += ENEMYMOVERATE
 
-	    if pygame.sprite.collide_mask(playerSprite, heartSprite):
+            if pygame.sprite.collide_mask(playerSprite, heartSprite):
                 heartObj['x'] = random.randint(0, WINWIDTH)
                 heartObj['y'] = random.randint(0, WINHEIGHT)
-	        PTS += 1
+                PTS += 1
 
-	    if pygame.sprite.collide_mask(playerSprite, enemySprite):
-	        gameOverMode = True
+            if pygame.sprite.collide_mask(playerSprite, enemySprite):
+                gameOverMode = True
                 gameOverStartTime = time.time()
-	else:
+        else:
             DISPLAYSURF.blit(gameOverSurf, gameOverRect)
             if time.time() - gameOverStartTime > GAMEOVERTIME:
                 return
