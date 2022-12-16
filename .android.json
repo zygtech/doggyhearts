@@ -1,0 +1,1 @@
+{"orientation": "sensorLandscape", "include_pil": false, "expansion": false, "icon_name": "DoggyHearts", "targetsdk": 26, "include_sqlite": false, "permissions": [], "layout": "internal", "name": "DoggyHearts", "package": "com.zygtech.doggyhearts", "source": false, "version": "1.0", "numeric_version": "100"}
