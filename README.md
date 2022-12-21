@@ -6,7 +6,7 @@ Example covers most important topics: rendering background (+scrolled), applying
 
 Pay attention to sections related to Android module as they are required to work on mobile phones and tablets.
 
-Install PyGame (on Debian/Ubuntu: <code>sudo apt install python3-pygame</code>) and just clone and run Python script with <code>python3 main.py</code>.
+Install PyGame (on Debian/Ubuntu: <code>sudo apt install python3-pygame</code>) and just clone <code>git clone https://github.com/zygtech/doggyhearts</code> and run Python script with <code>python3 main.py</code>.
 
 Python code is Android ready just follow instructions on https://github.com/startgridsrc/pgs4a to deploy it for mobiles:
 
