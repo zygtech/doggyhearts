@@ -4,7 +4,7 @@ Basic example how to start writing Android games in Python. If you know Python l
 
 Example covers most important topics: rendering background (+scrolled), applying mask on sprite images for collision detection, calculating sprites positions and rendering with layered updates, handling event controls for both mouse (touchscreen) and keyboard.
 
-Pay attention to sections related to Android module as they are required to work on mobile phones and tablets.
+Pay attention to sections related to Android module as they are required to work on phones and tablets.
 
 Install PyGame (on Debian/Ubuntu: <code>sudo apt install python3-pygame</code>) and just clone <code>git clone https://github.com/zygtech/doggyhearts</code> and run Python script with <code>python3 main.py</code>.
 
